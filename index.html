@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        button{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="displayText">&nbsp;</h1>
+        <button onclick="generateText()">Generate activity</button>
+    </div>
+   
+
+    <script >
+        function generateText(){
+            fetch('http://www.boredapi.com/api/activity/')
+            .then(res => res.json())
+            .then(data => 
+            document.getElementById('displayText').innerText = data.activity
+            )
+        }
+    </script>
+</body>
+</html>
